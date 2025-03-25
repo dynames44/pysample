@@ -18,3 +18,9 @@ def greet(name):
     return f"{name} goo to see you"
 
 print(f"{greet(name)}")  
+
+#F String을 쓰지 않으려면
+print("hi...%s!!" %name)  
+print("hi...{}!!" .format(name))  
+print("hi...{} & {}!!" .format(name, "goo"))  
+print("hi...{1} & {0}!!" .format(name, "goo"))
