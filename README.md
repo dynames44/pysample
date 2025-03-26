@@ -59,6 +59,16 @@ pip install -r requirements.txt
 
 
 
+### 4. 라이브러리를 추가 하면 패키지 파일에 기록 
+
+```
+pip freeze > requirements.txt
+```
+
+---
+
+
+
 ### ❗ 왜 꼭 이렇게 해야 하는가?
 
 > - Maven 없이 스프링 앱 실행됨?  
