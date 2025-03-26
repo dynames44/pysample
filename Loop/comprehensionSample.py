@@ -4,13 +4,13 @@
 
 # Syntax: [expression for item in iterable if condition]
 # - expression: 각 아이템에 적용할 표현식
-# - item: 반복 가능한 객체(iterable)에서의 항목
+# - item: 반복 가능한 객체의 개별 항목 , For in 의 변수
 # - iterable: 리스트, 튜플, 문자열 등
 # - condition: (선택사항) 특정 조건만 만족하는 항목 포함
 
 # --- 리스트 컴프리헨션 ---
 print("Comprehension list ::::::")
-listData1 = [i for i in range(1, 11)]  # 1부터 10까지
+listData1 = [i for i in range(1, 11)]  # 1부터 10까지 각 값을 리스트 형태 [] 로 저장 
 print("listData1 ::::::", listData1)
 
 # 조건절 적용
@@ -30,12 +30,12 @@ matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 flattened = [num for row in matrix for num in row]
 print("type1 ::::::", flattened)
 
-# 중첩 변수 사용
-data = [(x, y) for x in range(1, 6) for y in range(1, 4)]
+# # 중첩 변수 사용
+data = [[x, y] for x in range(1, 6) for y in range(1, 4)]
 print("type2 ::::::", data)
 
 # 중첩 조건절
-data = [(x, y) for x in range(1, 4) for y in range(1, 4) if x % 2 == 1 if y > 1]
+data = [(x, y) for x in range(1, 4) for y in range(1, 4) if x % 2 == 1 if y > 1] #x는 홀수 y는 2,3만 
 print("type3 ::::::", data)
 
 # --- 딕셔너리 컴프리헨션 ---
@@ -64,11 +64,11 @@ print("Comprehension set ::::::")
 setData = {i for i in range(10) if i % 2 == 0}
 print("setData ::::::", setData)
 
-# --- 제너레이터 컴프리헨션 ---
-print("Comprehension generator ::::::")
-gen = (i * i for i in range(1, 6) if i % 2 == 1)
-print("gen ::::::", list(gen))  # 실제 꺼내려면 list() 또는 반복 필요
+# # --- 제너레이터 컴프리헨션 ---
+# print("Comprehension generator ::::::")
+# gen = (i * i for i in range(1, 6) if i % 2 == 1)
+# print("gen ::::::", list(gen))  # 실제 꺼내려면 list() 또는 반복 필요
 
-# 제너레이터와 조건 처리
-lines = (line.strip() for line in ["  hi  ", "hello ", " bye"] if line.strip())
-print("lines ::::::", list(lines))
+# # 제너레이터와 조건 처리
+# lines = (line.strip() for line in ["  hi  ", "hello ", " bye"] if line.strip())
+# print("lines ::::::", list(lines))
