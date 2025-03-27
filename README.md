@@ -59,7 +59,7 @@ pip install -r requirements.txt
 
 
 
-### 4. 라이브러리를 추가 하면 패키지 파일에 기록 
+### 4. PIP 사용 라이브러리를 추가 하여 사용 했다면 해당 라이브러리를 패키지 파일에 기록 
 
 ```
 pip freeze > requirements.txt
