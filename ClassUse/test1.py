@@ -15,3 +15,9 @@ t2.info("노원") # 자식 클래스내 메소드 호출
 
 t2.hobby = "golf" #클래스 내에 없는 멤버 변수도 생성가능, 단!!! 생성한 인스턴스에 한정된다.
 print(f"너의 취미는 {t2.hobby}") 
+
+t1.defineC() #원본 메소드
+t2.defineC("t2") # 자식클래스에서 재정의된 메소드 
+
+t2.colors("white") #자식 클래스에서 부모를 super()호 호출
+print(t2.color)

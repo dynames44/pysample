@@ -5,3 +5,17 @@ class sampleClass1:
         
     def sample1(self):
         print("sampleClass1")
+        
+    def defineC(self):
+        print("sampleClass1.defineC Call")
+        
+    # 파이썬은 메소드 오버로드는 지원되지 않는다. 
+    # 파라미터나 구현이 다른 함수가 정의 되면 오버라이드 된다.    
+    # def defineC(self,name): 
+    #     print(f"{name} 인스턴스가 sampleClass1.defineC Call")                 
+        
+        
+    def defineColor(self, color):        
+        self.color = color
+        print(f"너의 색깔을 찾아라..{color}")
+    
