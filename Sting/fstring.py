@@ -6,21 +6,21 @@
  : java , C 당연히 모두 있는건데...파이썬이 좀더 쓰기 거지 같음 
  : f""
 '''
-name = "bong"
-printStr1 = f"hi...{name}!!"
+name: str = "bong"
+printStr1: str = f"hi...{name}!!"
 print(printStr1)
 
-inta = 5
-intb = 3
+inta: int = 5
+intb: int = 3
 print(f"{inta} + {intb} = {inta + intb}")
 
-def greet(name):
+def greet(name: str) -> str:
     return f"{name} goo to see you"
 
 print(f"{greet(name)}")  
 
 #F String을 쓰지 않으려면
-print("hi...%s!!" %name)  
-print("hi...{}!!" .format(name))  
-print("hi...{} & {}!!" .format(name, "goo"))  
-print("hi...{1} & {0}!!" .format(name, "goo"))
+print("hi...%s!!" % name)  
+print("hi...{}!!".format(name))  
+print("hi...{} & {}!!".format(name, "goo"))  
+print("hi...{1} & {0}!!".format(name, "goo"))

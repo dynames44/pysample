@@ -6,7 +6,7 @@ print("A", "B", sep= ",", end=" ? ") # end : 문장의 끝이 뭘 붙일지 없�
 print("A", "B")
 
 # 문자 자리수 채우는 함수 
-data = "13"
+data : str = "13"
 print(str(data).zfill(5)) #zfill(전체 자리수) : 전체 자리수중 모자란 나머지를 0으로 채움 
 print(data.ljust(5, "*")) #ljust(전체 자리수, 채울문자) : 데이터 좌정렬 , 전체 자리수중 모자란 나머지를 지정문자로 채움 
 print(data.rjust(5, "*")) #ljust(전체 자리수, 채울문자) : 데이터 우정렬 , 전체 자리수중 모자란 나머지를 지정문자로 채움 
