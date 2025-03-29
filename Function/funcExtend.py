@@ -1,7 +1,7 @@
 # 함수 선언시 파마미터에 대한 힌트를 선언한다.
 
-from typing import Optional, Union, Literal, Callable
-import traceback
+from typing import Optional, Union, Literal, Callable, Tuple
+from Exception.CustomException import InvalidParamError, NoneParamError
 
 # Optional : 파라미터 값이 있을수도 있고 없을 수도 있음 
 # 단 디폴트 None 선언이 없음 에러
@@ -32,23 +32,33 @@ exOptional(3)
 exUnion(3) 
 
 # 그래도 에러 나길 원한다면????
-# 강제 체크로직 추가 
-def exOptionalExds(name: Optional[str] = None) -> None:
+# 사용자 엑셉션 만들어서 에러처리 
+# 하는김에 에러, 정상 구분하여 리턴값도 만들어 줘봤따.
+def exOptionalExds(name: Optional[str] = None) -> Tuple[bool,  Optional[str]]:
     try:
         if not isinstance(name, (str, type(None))):
-            raise TypeError("name는 str 또는 None만 가능합니다.")
+            raise InvalidParamError("name는 str 또는 None만 가능합니다.")
         
+    except InvalidParamError as e:
+        print(e)
+        return False, "9999"
+
     except Exception as e:
         print("오류 타입:", type(e))
         print("오류 내용:", e)
+        return False, "9999"
         
     else:
         if name is not None:
             print(f"Param name ::: {name}")
+            return True, "0000"
         else:
-            print(f"Param name ::: None")                    
+            print(f"Param name ::: None")      
+            return True, "0000"              
 
-exOptionalExds(3)
+#print(exOptionalExds(3))
+result, msg  = exOptionalExds(3)
+print(f"result::::{result}, msg:::::{msg}")
 
 # Literal 나열된 Literal 중 하나를 변수로 받는다.
 # 기본적으로는 당연히 강재성은 없다. 그러나 억지로 강제 할수도.....
@@ -56,8 +66,11 @@ def exLiteral(level: Literal["DEBUG", "INFO", "ERROR"]) -> None:
     
     try:
         if level not in ("DEBUG", "INFO", "ERROR"):
-            raise ValueError(f"허용되지 않은 level 값입니다: {level}")
-        
+            raise InvalidParamError(f"허용되지 않은 level 값입니다: {level}")  
+
+    except InvalidParamError as e:
+        print(e)
+
     except Exception as e:
         print("오류 타입:", type(e))
         print("오류 내용:", e)
@@ -90,3 +103,4 @@ def exCallable(func: Callable[[str, int], None], value: str, age: int =0) -> Non
 
 exCallable(hello, "Bong")
 exCallable(hi, "Goo")
+
