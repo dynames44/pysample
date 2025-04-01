@@ -108,6 +108,7 @@ ssap("nono", 1, 2, 3, **dictData3)
 print()
 
 # 람다 함수
+# lambda 매개변수: 리턴값
 square: callable = lambda x: x + 1
 print(square(5))
 print()
